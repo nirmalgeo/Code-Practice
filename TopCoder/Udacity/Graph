@@ -1,0 +1,38 @@
+visited = {}
+
+def bread_first_Search(G,num1, num2):
+    list = []
+    list.append(num1)
+    visited = {}
+    while len(list) > 0:
+        current = list[0]
+        print current
+        del list[0]
+        for neighbour in G[current]:
+            if neighbour not in visited:
+                visited[neighbour] = neighbour
+                list.append(G[current])
+                if ( num1 == num2):
+                    return
+        
+        
+
+
+def create_ring_network(G,num1,num2):
+        if num1 not in G:
+            G[num1] ={}
+        G[num1][num2] = 1
+        if num2 not in G:
+            G[num2] = {}
+        G[num2][num1] = 1
+
+
+
+x= 5
+G= {}
+
+for i in range(x):
+    create_ring_network(G, i , (i+1)%x)
+print G
+
+bread_first_Search(G,1,5)

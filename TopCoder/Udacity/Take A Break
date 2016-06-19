@@ -1,0 +1,9 @@
+import webbrowser
+import time
+
+print ("The start of program" + time.ctime())
+i= 0
+while i < 3:
+    time.sleep(5)
+    webbrowser.open("www.google.com")
+    i= i+1
